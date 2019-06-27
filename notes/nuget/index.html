@@ -10,7 +10,7 @@
   
   <title>
     
-      黑凤梨的假正经Blog
+      Docker 安装 Nuget Package 服务器 | 黑凤梨的假正经Blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -95,47 +95,131 @@
 </header>
 
     <div id="article-banner">
-  <h2>Archives</h2>
-  <p class="post-date">文章归档</p>
+  <h2>    
+    
+    Docker 安装 Nuget Package 服务器</h2>
+  <!-- <p class="post-date">2019-06-27</p> -->
+  <!-- <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div> -->
 </div>
-<main class="app-body" id="archives">
-  
-  
-  
-    <section class="time-section">
-  <h1 class="section-year">
-    2019
-  </h1>
-  <div class="section-list">
+<main class="app-body flex-box">
     
+      
     
-      <div class="section-list-item">
-        <a href="/notes/nuget/" class="archive-title">Docker 安装 Nuget Package 服务器</a>
-        <p class="archive-date">06-27</p>
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul>
+<li><a href="/centos">安装Centos</a></li>
+<li><a href="/docker">安装Docker</a> </li>
+</ul>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <!-- <span>标签:</span> -->
+        
+  <a href="/tags#Centos" >
+    <span class="tag-code">Centos</span>
+  </a>
+
+  <a href="/tags#Docker" >
+    <span class="tag-code">Docker</span>
+  </a>
+
       </div>
     
-      <div class="section-list-item">
-        <a href="/notes/hexo/" class="archive-title">hexo</a>
-        <p class="archive-date">06-27</p>
-      </div>
+    <!-- Tags END -->
+    <!-- Tags START -->
+
+    <!-- Tags END -->
+    <!-- NAV START -->
     
-      <div class="section-list-item">
-        <a href="/notes/centos/" class="archive-title">centos 笔记</a>
-        <p class="archive-date">06-27</p>
-      </div>
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/notes/hexo/">
+        <span class="nav-arrow">← </span>
+        
+          hexo
+        
+      </a>
+    
     
   </div>
-</section>
+
+    <!-- NAV END -->
+
   
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    
+<aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">目录</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#准备工作"><span class="toc-nav-text">准备工作</span></a></li></ol>
+    
+  </div>
+</aside>
+
+  
+  <!-- Catalog END -->
 </main>
 
 <script>
   (function () {
-    var url = 'http://yoursite.com/archives/2019/06/index.html';
-    $('#article-banner').geopattern(url);
-    $('.header').removeClass('fixed-header');
+    var url = 'http://yoursite.com/notes/nuget/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
   })();
 </script>
+
+
     <div class="scroll-top">
   <span class="arrow-icon"></span>
 </div>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="个人博客 学习">
+  <meta name="keyword" content="hexo-theme, vuejs , note">
+  
+    <link rel="shortcut icon" href="/images/heifengli.png">
+  
+  <title>
+    
+      centos 笔记 | 黑凤梨的假正经Blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+</head>
+
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>黑凤梨的假正经Blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/categories/" class="item-link">分类</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">我</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">首页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/categories/" class="menu-link">分类</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">我</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>    
+    
+    centos 笔记</h2>
+  <!-- <p class="post-date">2019-06-27</p> -->
+  <!-- <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div> -->
+</div>
+<main class="app-body flex-box">
+    
+      
+    
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h2 id="安装-amp-配置"><a href="#安装-amp-配置" class="headerlink" title="安装&amp;配置"></a>安装&amp;配置</h2><blockquote>
+<p>基于VMWare + Centos 7 </p>
+</blockquote>
+<h3 id="配置网络"><a href="#配置网络" class="headerlink" title="配置网络"></a>配置网络</h3><blockquote>
+<p>在刚安装完Centos 后是无法上网的 所以需要自己配置网络（桥接模式）<a href="https://blog.csdn.net/yuhan61659/article/details/81017451" target="_blank" rel="noopener">搬运链接</a><br>我们的目标是成功 ping <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> </p>
+</blockquote>
+<ul>
+<li><p>先进行自动获取网络  命令：<code>dhclient</code> 再用命令 <code>ip addr</code> 查看IP</p>
+</li>
+<li><p>将系统的IP设置为静态的，步骤如下： （ 使用桥接模式让虚拟机能够连接网络 ，与宿主机相同IP段）</p>
+<ul>
+<li>鼠标右键虚拟机配置-网络配置器，修改为 桥接模式</li>
+<li>进入虚拟机的centos7系统中, 修改centos7的ip <code>cd /etc/sysconfig/network-scripts/</code></li>
+<li>ls 显示当前目录所有文件 可看到文件 <strong>ifcfg-ens33</strong> (不同机器可能不同)</li>
+<li>使用vim 编辑器编辑该文件  <code>vi ifcfg-ens33</code></li>
+<li>修改/新增部分配置<br> 1.将网络获取将DHCP改为静态(默认值dhcp)<br> 2.将IP设置为6.187,网关为6.1,子网掩码长度 24 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO=static</span><br><span class="line">  ONBOOT=yes</span><br><span class="line">  IPADDR=192.168.6.187</span><br><span class="line">  GETWAY=192.168.6.1</span><br><span class="line">  PREFIX=24</span><br><span class="line">  DNS1=8.8.8.8</span><br><span class="line">  # 下面两个不知道什么鬼，加了就好了</span><br><span class="line">  IPV6_PRIVACY=no</span><br><span class="line">  PROXY_METHOD=none</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong><em>我的电脑在此处已经可以联网了 (</em>^▽^<em>)</em></strong></p>
+<ul>
+<li><p>关闭防火墙<br><code>systemctl stop firewalld.service #停止firewall</code><br><code>systemctl disable firewalld.service #禁止firewall开机启动</code></p>
+</li>
+<li><p>配置DNS</p>
+<ul>
+<li>nmcli connection show  显示当前连接的网，如果没有显示，说明当前没有网络建立连接，需要把ens33激活up</li>
+<li>修改当前网络连接对应的DNS服务器 <code>nmcli con mod ens33 ipv4.dns &quot;114.114.114.114 8.8.8.8&quot;</code></li>
+<li>将dns配置生效 <code>nmcli con up ens33</code></li>
+<li>重启network <code>systemctl restart network.service</code></li>
+</ul>
+<p><strong>还不行继续下面步骤</strong></p>
+<hr>
+<ul>
+<li>查看是否有static-routes文件 <code>ll /etc/sysconfig/</code> 没有就进入配置我呢间嘉爱 <code>cd  /etc/sysconfig</code>  然后创建文件 <code>touch static-routes</code></li>
+<li>编辑文件 <code>vi /etc/sysconfig/static-routes</code> </li>
+<li>添加内容 <code>any net default gw 192.168.0.1</code>  保存退出 <code>wq</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <!-- <span>标签:</span> -->
+        
+  <a href="/tags#Centos" >
+    <span class="tag-code">Centos</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- Tags START -->
+
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+    
+      <a class="nav-right" href="/notes/hexo/">
+        
+          hexo
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+
+  
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    
+<aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">目录</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装-amp-配置"><span class="toc-nav-text">安装&amp;配置</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置网络"><span class="toc-nav-text">配置网络</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://yoursite.com/notes/centos/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | 文档 <a href="https://hexo.io" target="_blank">Hexo </a>
+    |  主题 <a href="https://github.com/yanm1ng/hexo-theme-vexo"  target="_blank"> © Theme-Vexo </a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>
