@@ -10,7 +10,7 @@
   
   <title>
     
-      Docker 安装 Nuget Package 服务器 | 黑凤梨的假正经Blog
+      Docker下部署Nuget Service | 黑凤梨的假正经Blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -97,7 +97,7 @@
     <div id="article-banner">
   <h2>    
     
-    Docker 安装 Nuget Package 服务器</h2>
+    Docker下部署Nuget Service</h2>
   <!-- <p class="post-date">2019-06-27</p> -->
   <!-- <div class="arrow-down">
     <a href="javascript:;"></a>
@@ -109,9 +109,46 @@
     
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul>
-<li><a href="/centos">安装Centos</a></li>
-<li><a href="/docker">安装Docker</a> </li>
+    <section class="markdown-content"><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li><a href="/notes/centos">安装Centos</a></li>
+<li><a href="/notes/docker">安装Docker</a> </li>
+<li>创建NetGet Key <a href="https://www.nuget.org/account/apikeys" target="_blank" rel="noopener">Nuget官网</a></li>
+</ul>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h3><p> <code>docker pull  idoop/docker-nuget-server</code>  <a href="https://hub.docker.com/r/idoop/docker-nuget-server" target="_blank" rel="noopener">docker镜像地址</a></p>
+<h3 id="环境（文件）准备"><a href="#环境（文件）准备" class="headerlink" title="环境（文件）准备"></a>环境（文件）准备</h3><ul>
+<li><p>文件目录<br><code>/var/nuget</code> 存放 nuget-server 的文件 包含 <code>/db</code> , <code>/packagefiles</code> 两个文件夹<br><code>/usr/nuget</code> 存放 nuget-server 的docker-compose 文件</p>
+</li>
+<li><p>宿主机创建文件夹 <code>/var/nuget/db</code>  <code>/var/nuget/packages</code> 用于映射镜像存储的数据库和包文件</p>
+</li>
+</ul>
+<h3 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h3><h4 id="使用docker-command"><a href="#使用docker-command" class="headerlink" title="使用docker command"></a>使用docker command</h4><p><code>docker run -d -p 5000:80 -e NUGET_API_KEY=oy2idwuya26l2vqd26taoeskx7p4pevurd3325qjb5gnfe -v /var/nuget/db:/var/www/db -v /var/nuget/packages:/var/www/packagefiles --restart always --name nuget-server  idoop/docker-nuget-server</code></p>
+<blockquote>
+<p><strong>命令解释：</strong><br>  将容器的80端口 映射到主机的5000 端口   <code>-p 5000:80</code><br>  设置Nuget_api_key 设置为 xxx  <code>-e NUGET_API_KEY=oy2idwuya26l2vqd26taoeskx7p4pevurd3325qjb5gnfe</code><br>  设置文件映射  <code>-v /var/nuget/db:/var/www/db -v /var/nuget/packages:/var/www/packagefiles</code><br>  设置容器名称 <code>--name nuget</code><br>  来源镜像名称 <code>idoop/docker-nuget-server</code></p>
+</blockquote>
+<ul>
+<li>检查防火墙状态</li>
+<li><a href="/notes/centos/#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%8F%A3%E6%9F%A5%E7%9C%8B">开放5000端口</a></li>
+</ul>
+<h4 id="使用-docker-compose"><a href="#使用-docker-compose" class="headerlink" title="使用 docker compose"></a>使用 docker compose</h4><blockquote>
+<p>用[docker-compose](/notes/docker#Docker Compose)，因为敲命令太长了</p>
+</blockquote>
+<ul>
+<li><p>文件目录<br><code>/usr/nuget</code> 存放 nuget-server 的docker-compose 文件</p>
+</li>
+<li><p>docker-compose.yml 文件内容 </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">version: &apos;2&apos;</span><br><span class="line">services:</span><br><span class="line">  nuget-server:</span><br><span class="line">    container_name: nuget-server</span><br><span class="line">    image: idoop/docker-nuget-server:latest</span><br><span class="line">    network_mode: &quot;host&quot;</span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">      NUGET_API_KEY: &quot;nugetkey&quot;</span><br><span class="line">      UPLOAD_MAX_FILESIZE: &quot;40M&quot;</span><br><span class="line"></span><br><span class="line">      ## When use host network mode, </span><br><span class="line">      ## set SERVER_PORT value if you want change server expose port.</span><br><span class="line">      SERVER_PORT: &quot;5000&quot;</span><br><span class="line"></span><br><span class="line">      ## Set nuget server domain[:port], also you can use machine(not container) ip[:port]. </span><br><span class="line">      ## eg:   &quot;192.168.11.22:8080&quot; or &quot;nuet.eg.com:8080&quot;</span><br><span class="line">      ## SERVER_NAME: &quot;nuget.example.com&quot;</span><br><span class="line">      WORKER_PROCESSES: &quot;2&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - nuget-db:/var/www/simple-nuget-server/db</span><br><span class="line">      - nuget-packagefiles:/var/www/simple-nuget-server/packagefiles</span><br><span class="line">      - nuget-nginx:/etc/nginx</span><br><span class="line">    ulimits:</span><br><span class="line">      nproc: 8096</span><br><span class="line">      nofile:</span><br><span class="line">        soft: 65535</span><br><span class="line">        hard: 65535</span><br><span class="line">volumes:</span><br><span class="line">  nuget-db:</span><br><span class="line">    driver: local</span><br><span class="line">    driver_opts:</span><br><span class="line">      type: &apos;none&apos;</span><br><span class="line">      o: &apos;bind&apos;</span><br><span class="line">      device: &apos;/var/nuget/db&apos;</span><br><span class="line">  nuget-packagefiles:</span><br><span class="line">    driver: local</span><br><span class="line">    driver_opts:</span><br><span class="line">      type: &apos;none&apos;</span><br><span class="line">      o: &apos;bind&apos;</span><br><span class="line">      device: &apos;/var/nuget/packagefiles&apos;</span><br><span class="line">  nuget-nginx:</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动容器 进入目录 <code>cd /usr/nuget</code>  <code>docker-compose up -d</code></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>访问网址 <code>https://192.168.6.188:5000</code> 出现xml页面表示成功</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p><a href="https://www.cnblogs.com/alan_peng/p/4794395.html" target="_blank" rel="noopener">搬运链接</a></p>
+<h3 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h3><p>下载 PackageExplorer 工具</p>
+<p>选中需要上传的dll </p>
+<p>点击 File  - Publish 输入 nuget-server 地址和 app_key 即可</p>
+<h3 id="获取包"><a href="#获取包" class="headerlink" title="获取包"></a>获取包</h3><blockquote>
+<p>从搭建好的个人 nuget-server 获取dll包</p>
+</blockquote>
+<p>Vs - 工具 - Nuget -管理Nuget程序包 - 设置 - 添加包源 即可</p>
+</li>
 </ul>
 </section>
     <!-- Tags START -->
@@ -119,12 +156,12 @@
       <div class="tags">
         <!-- <span>标签:</span> -->
         
-  <a href="/tags#Centos" >
-    <span class="tag-code">Centos</span>
-  </a>
-
   <a href="/tags#Docker" >
     <span class="tag-code">Docker</span>
+  </a>
+
+  <a href="/tags#dotnet" >
+    <span class="tag-code">dotnet</span>
   </a>
 
       </div>
@@ -141,10 +178,17 @@
       <a class="nav-left" href="/notes/hexo/">
         <span class="nav-arrow">← </span>
         
-          hexo
+          使用Hexo创建个人Blog
         
       </a>
     
+    
+      <a class="nav-right" href="/notes/docker/">
+        
+          Docker安装和配置
+        
+        <span class="nav-arrow"> →</span>
+      </a>
     
   </div>
 
@@ -160,7 +204,7 @@
   <div class="toc-main">
     <strong class="toc-title">目录</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#准备工作"><span class="toc-nav-text">准备工作</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#准备工作"><span class="toc-nav-text">准备工作</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#开始"><span class="toc-nav-text">开始</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#下载镜像"><span class="toc-nav-text">下载镜像</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#环境（文件）准备"><span class="toc-nav-text">环境（文件）准备</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#运行镜像"><span class="toc-nav-text">运行镜像</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#使用docker-command"><span class="toc-nav-text">使用docker command</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#使用-docker-compose"><span class="toc-nav-text">使用 docker compose</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#测试"><span class="toc-nav-text">测试</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#使用"><span class="toc-nav-text">使用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#打包"><span class="toc-nav-text">打包</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#获取包"><span class="toc-nav-text">获取包</span></a></li></ol></li></ol>
     
   </div>
 </aside>

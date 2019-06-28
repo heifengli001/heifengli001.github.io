@@ -34,7 +34,7 @@
       
         <li class="list-item">
           
-            <a href="/" class="item-link active">首页</a>
+            <a href="/" class="item-link">首页</a>
           
         </li>
       
@@ -67,7 +67,7 @@
         
           <li class="menu-item">
             
-              <a href="/" class="menu-link mobile-active">首页</a>
+              <a href="/" class="menu-link">首页</a>
             
           </li>
         
@@ -94,139 +94,58 @@
   </div>
 </header>
 
-    <main class="app-body">
+    <div id="article-banner">
+  <h2>Archives</h2>
+  <p class="post-date">文章归档</p>
+</div>
+<main class="app-body" id="archives">
   
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/notes/nginx/">nginx</a>
-      </h2>
-      <p class="article-date">June 28, 2019</p>
-      <!-- 
-        
-  <a href="/tags#Docker" >
-    <span class="tag-code">Docker</span>
-  </a>
-
-  <a href="/tags#Nginx" >
-    <span class="tag-code">Nginx</span>
-  </a>
-
-       -->
-      <div class="article-summary">
-        
-          使用Docker安装和使用Nginx拉取容器docker pull nginx
-运行容器12docker run -p 80:80 --name mynginx  -v /www:/www -v /logs:/wwwlogs  -v /etc/nginx/nginx.conf:/doetc/ ...
-        
+  
+  
+    <section class="time-section">
+  <h1 class="section-year">
+    2019
+  </h1>
+  <div class="section-list">
+    
+    
+      <div class="section-list-item">
+        <a href="/notes/nginx/" class="archive-title">nginx</a>
+        <p class="archive-date">06-28</p>
       </div>
-      <a class="more" href="/notes/nginx/">更多...</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/notes/docker/">Docker安装和配置</a>
-      </h2>
-      <p class="article-date">June 27, 2019</p>
-      <!-- 
-        
-  <a href="/tags#Docker" >
-    <span class="tag-code">Docker</span>
-  </a>
-
-       -->
-      <div class="article-summary">
-        
-          Docker学习
-CentOS 系列安装 DockerDocker 支持 CentOS6 及以后的版本。
-CentOS6对于 CentOS6，可以使用 EPEL 库安装 Docker，命令如下
-yum install http://mirrors.yun-idc.com/epel/6/i38 ...
-        
+    
+      <div class="section-list-item">
+        <a href="/notes/docker/" class="archive-title">Docker安装和配置</a>
+        <p class="archive-date">06-27</p>
       </div>
-      <a class="more" href="/notes/docker/">更多...</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/notes/nuget/">Docker下部署Nuget Service</a>
-      </h2>
-      <p class="article-date">June 27, 2019</p>
-      <!-- 
-        
-  <a href="/tags#Docker" >
-    <span class="tag-code">Docker</span>
-  </a>
-
-  <a href="/tags#dotnet" >
-    <span class="tag-code">dotnet</span>
-  </a>
-
-       -->
-      <div class="article-summary">
-        
-          准备工作
-安装Centos
-安装Docker 
-创建NetGet Key Nuget官网
-
-开始下载镜像 docker pull  idoop/docker-nuget-server  docker镜像地址
-环境（文件）准备
-文件目录/var/nuget 存放 nuget-server 的文 ...
-        
+    
+      <div class="section-list-item">
+        <a href="/notes/nuget/" class="archive-title">Docker下部署Nuget Service</a>
+        <p class="archive-date">06-27</p>
       </div>
-      <a class="more" href="/notes/nuget/">更多...</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/notes/hexo/">使用Hexo创建个人Blog</a>
-      </h2>
-      <p class="article-date">June 27, 2019</p>
-      <!-- 
-        
-  <a href="/tags#Hexo" >
-    <span class="tag-code">Hexo</span>
-  </a>
-
-       -->
-      <div class="article-summary">
-        
-          Hexo 学习笔记
-        
+    
+      <div class="section-list-item">
+        <a href="/notes/hexo/" class="archive-title">使用Hexo创建个人Blog</a>
+        <p class="archive-date">06-27</p>
       </div>
-      <a class="more" href="/notes/hexo/">更多...</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/notes/centos/">Centos7安装</a>
-      </h2>
-      <p class="article-date">June 27, 2019</p>
-      <!-- 
-        
-  <a href="/tags#Centos" >
-    <span class="tag-code">Centos</span>
-  </a>
-
-       -->
-      <div class="article-summary">
-        
-          安装&amp;配置
-基于VMWare + Centos 7 
-
-配置网络
-在刚安装完Centos 后是无法上网的 所以需要自己配置网络（桥接模式）搬运链接我们的目标是成功 ping www.baidu.com 
-
-
-先进行自动获取网络  命令：dhclient 再用命令 ip addr 查看 ...
-        
+    
+      <div class="section-list-item">
+        <a href="/notes/centos/" class="archive-title">Centos7安装</a>
+        <p class="archive-date">06-27</p>
       </div>
-      <a class="more" href="/notes/centos/">更多...</a>
-    </article>
-  
-
+    
+  </div>
+</section>
   
 </main>
 
-
+<script>
+  (function () {
+    var url = 'http://yoursite.com/tags/Nginx/index.html';
+    $('#article-banner').geopattern(url);
+    $('.header').removeClass('fixed-header');
+  })();
+</script>
     <div class="scroll-top">
   <span class="arrow-icon"></span>
 </div>

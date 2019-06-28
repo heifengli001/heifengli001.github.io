@@ -10,7 +10,7 @@
   
   <title>
     
-      centos 笔记 | 黑凤梨的假正经Blog
+      Centos7安装 | 黑凤梨的假正经Blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -97,7 +97,7 @@
     <div id="article-banner">
   <h2>    
     
-    centos 笔记</h2>
+    Centos7安装</h2>
   <!-- <p class="post-date">2019-06-27</p> -->
   <!-- <div class="arrow-down">
     <a href="javascript:;"></a>
@@ -130,8 +130,6 @@
 </ul>
 <p><strong><em>我的电脑在此处已经可以联网了 (</em>^▽^<em>)</em></strong></p>
 <ul>
-<li><p>关闭防火墙<br><code>systemctl stop firewalld.service #停止firewall</code><br><code>systemctl disable firewalld.service #禁止firewall开机启动</code></p>
-</li>
 <li><p>配置DNS</p>
 <ul>
 <li>nmcli connection show  显示当前连接的网，如果没有显示，说明当前没有网络建立连接，需要把ens33激活up</li>
@@ -147,6 +145,43 @@
 <li>添加内容 <code>any net default gw 192.168.0.1</code>  保存退出 <code>wq</code></li>
 </ul>
 </li>
+<li><p>关闭防火墙<br><code>systemctl stop firewalld.service #停止firewall</code><br><code>systemctl disable firewalld.service #禁止firewall开机启动</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="防火墙以及端口配置"><a href="#防火墙以及端口配置" class="headerlink" title="防火墙以及端口配置"></a>防火墙以及端口配置</h2><h3 id="查看防火墙状态"><a href="#查看防火墙状态" class="headerlink" title="查看防火墙状态"></a>查看防火墙状态</h3><ul>
+<li>查看防火墙状态 <code>systemctl status firewalld</code>  active(running) 表示正在运行中</li>
+<li>开启防火墙 <code>systemctl start firewalld</code></li>
+<li>关闭防火墙 <code>systemctl stop firewalld</code></li>
+<li>开启防火墙 <code>service firewalld start</code></li>
+</ul>
+<p><strong>若遇到无法开启</strong></p>
+<ul>
+<li>先用：<code>systemctl unmask firewalld.service</code></li>
+<li>然后：<code>systemctl start firewalld.service</code></li>
+</ul>
+<h3 id="服务器端口查看"><a href="#服务器端口查看" class="headerlink" title="服务器端口查看"></a>服务器端口查看</h3><ul>
+<li>查询已开放的端口 <code>netstat -anp</code></li>
+<li>查询指定端口是否已开 <code>firewall-cmd --query-port=5000/tcp</code>  提示 yes，表示开启；no表示未开启。</li>
+<li>添加指定需要开放的端口<ul>
+<li><code>firewall-cmd --add-port=5000/tcp --permanent</code> </li>
+<li>重载入添加的端口：<code>firewall-cmd --reload</code></li>
+<li>查询指定端口是否开启成功</li>
+</ul>
+</li>
+<li>移除指定端口：<code>firewall-cmd --permanent --remove-port=5000/tcp</code></li>
+</ul>
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><ul>
+<li>查看版本： <code>firewall-cmd --version</code></li>
+<li>查看帮助： <code>firewall-cmd --help</code></li>
+<li>显示状态： <code>firewall-cmd --state</code></li>
+<li>查看所有打开的端口： <code>firewall-cmd --zone=public --list-ports</code></li>
+<li>更新防火墙规则： <code>firewall-cmd --reload</code></li>
+<li>查看区域信息: <code>firewall-cmd --get-active-zones</code></li>
+<li>查看指定接口所属区域： <code>firewall-cmd --get-zone-of-interface=eth0</code></li>
+<li>拒绝所有包：<code>firewall-cmd --panic-on</code></li>
+<li>取消拒绝状态： <code>firewall-cmd --panic-off</code></li>
+<li>查看是否拒绝： <code>firewall-cmd --query-panic</code></li>
 </ul>
 </li>
 </ul>
@@ -174,7 +209,7 @@
     
       <a class="nav-right" href="/notes/hexo/">
         
-          hexo
+          使用Hexo创建个人Blog
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -193,7 +228,7 @@
   <div class="toc-main">
     <strong class="toc-title">目录</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装-amp-配置"><span class="toc-nav-text">安装&amp;配置</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置网络"><span class="toc-nav-text">配置网络</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装-amp-配置"><span class="toc-nav-text">安装&amp;配置</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置网络"><span class="toc-nav-text">配置网络</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#防火墙以及端口配置"><span class="toc-nav-text">防火墙以及端口配置</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#查看防火墙状态"><span class="toc-nav-text">查看防火墙状态</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#服务器端口查看"><span class="toc-nav-text">服务器端口查看</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#其他命令"><span class="toc-nav-text">其他命令</span></a></li></ol></li></ol>
     
   </div>
 </aside>
