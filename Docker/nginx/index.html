@@ -10,7 +10,7 @@
   
   <title>
     
-      使用Hexo创建个人Blog | 黑凤梨的假正经Blog
+      Docker 安装 Nginx | 黑凤梨的假正经Blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -97,27 +97,98 @@
     <div id="article-banner">
   <h2>    
     
-    使用Hexo创建个人Blog</h2>
-  <!-- <p class="post-date">2019-06-27</p> -->
+      
+  <a style="color:#fff;" href="/categories#Docker" >
+    <span >Docker</span>
+  </a>
+ |
+    
+    Docker 安装 Nginx</h2>
+  <!-- <p class="post-date">2019-06-28</p> -->
   <!-- <div class="arrow-down">
     <a href="javascript:;"></a>
   </div> -->
   
     
+  <aside class="categoryposttopnav-container">
+    <div class="toc-main">
+      <!-- <strong class="toc-title">当前分类文章</strong> -->
+        
+          
+          <span class="note-item">
+             
+              <a href="/Docker/nuget/" >Docker下部署Nuget Service</a>
+          
+            </span>
+            
+            <!-- <span class="note-item">
+                           
+                <a href="/Docker/nuget/" >Docker下部署Nuget Service</a>
+              
+              </span> -->
+        
+          
+            <!-- <span class="note-item">
+              
+                <a href="/Docker/nginx/" class="active">Docker 安装 Nginx              </a>
+              
+              </span> -->
+        
+          
+          <span class="note-item">
+             
+              <a href="/Docker/docker/" >Docker安装和配置</a>
+          
+            </span>
+            
+            <!-- <span class="note-item">
+                           
+                <a href="/Docker/docker/" >Docker安装和配置</a>
+              
+              </span> -->
+        
+    </div>
+  </aside>
+  
   
 </div>
 <main class="app-body flex-box">
  
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="Hexo-学习笔记"><a href="#Hexo-学习笔记" class="headerlink" title="Hexo 学习笔记"></a>Hexo 学习笔记</h1></section>
+    <section class="markdown-content"><h1 id="使用Docker安装和使用Nginx"><a href="#使用Docker安装和使用Nginx" class="headerlink" title="使用Docker安装和使用Nginx"></a>使用Docker安装和使用Nginx</h1><h2 id="拉取容器"><a href="#拉取容器" class="headerlink" title="拉取容器"></a>拉取容器</h2><p><code>docker pull nginx</code></p>
+<h2 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">docker run -p 80:80 --name mynginx  -v /www:/www -v /logs:/wwwlogs  -v /etc/nginx/nginx.conf:/doetc/nginx/nginx.conf:ro   --privileged=true  -d nginx</span><br></pre></td></tr></table></figure>
+
+<p>OR </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cd</span><br></pre></td></tr></table></figure>
+
+<p>【上面两个没区别，只是把挂载目录换了下，便于容器管理】</p>
+<p> docker run 命令说明：</p>
+<p><code>-p 80:80</code>：将容器的80端口映射到主机的80端口</p>
+<p><code>--name mynginx</code> ：将容器命名为mynginx</p>
+<p><code>-v /www:/www</code>：将主机中当前目录下的www挂载到容器的/www</p>
+<p><code>-v /conf/nginx.conf:/etc/nginx/nginx.conf</code>：将主机中当前目录下的nginx.conf挂载到容器的/etc/nginx/nginx.conf</p>
+<p><code>-v /logs:/wwwlogs</code>：将主机中当前目录下的logs挂载到容器的/wwwlogs</p>
+<p><strong>Tips: 左边是宿主主机目录  右边是容器目录</strong></p>
+<p>常用错误解决：</p>
+<ol>
+<li>错误详细出现：not a directory  检查是否文件挂载（主要是.conf） 是否在对应目录拥有该文件</li>
+</ol>
+<p>完成run 命令后如果无错误 会在下方打印出容器Id</p>
+<h2 id="3-验证容器"><a href="#3-验证容器" class="headerlink" title="3.验证容器"></a>3.验证容器</h2><p><code>docker ps</code> 命令查看容器是否成功显示</p>
+<hr>
+</section>
     <!-- Tags START -->
     
       <div class="tags">
         <!-- <span>标签:</span> -->
         
-  <a href="/tags#Hexo" >
-    <span class="tag-code">Hexo</span>
+  <a href="/tags#Docker" >
+    <span class="tag-code">Docker</span>
+  </a>
+
+  <a href="/tags#Nginx" >
+    <span class="tag-code">Nginx</span>
   </a>
 
       </div>
@@ -131,17 +202,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/notes/centos/">
+      <a class="nav-left" href="/Docker/docker/">
         <span class="nav-arrow">← </span>
         
-          Centos7安装
+          Docker安装和配置
         
       </a>
     
     
-      <a class="nav-right" href="/Docker/nuget/">
+      <a class="nav-right" href="/notes/noteMark/">
         
-          Docker下部署Nuget Service
+          我的常用收藏夹
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -160,7 +231,7 @@
   <div class="toc-main">
     <strong class="toc-title">目录</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Hexo-学习笔记"><span class="toc-nav-text">Hexo 学习笔记</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#使用Docker安装和使用Nginx"><span class="toc-nav-text">使用Docker安装和使用Nginx</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#拉取容器"><span class="toc-nav-text">拉取容器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#运行容器"><span class="toc-nav-text">运行容器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-验证容器"><span class="toc-nav-text">3.验证容器</span></a></li></ol></li></ol>
     
   </div>
 </aside>
@@ -171,7 +242,7 @@
 
 <script>
   (function () {
-    var url = 'http://yoursite.com/notes/hexo/';
+    var url = 'http://yoursite.com/Docker/nginx/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({

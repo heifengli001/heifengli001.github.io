@@ -1081,6 +1081,44 @@ h2.article-head {
 .categorypost-container .toc-main li a:hover {
   color: #42b983;
 }
+.categoryposttopnav-container {
+  display: block;
+  margin-right: 20px;
+  flex-basis: 220px;
+  -webkit-flex-basis: 220px;
+  flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+}
+@media screen and (max-width: 960px) {
+  .categoryposttopnav-container {
+    display: none;
+  }
+}
+.categoryposttopnav-container .fixed-toc {
+  position: fixed;
+  top: 90px;
+}
+.categoryposttopnav-container .toc-main {
+  padding-right: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.categoryposttopnav-container .toc-main .note-item {
+  padding: 2px 10px;
+  border-right: 1px solid #fff;
+}
+.categoryposttopnav-container .toc-main .note-item .active {
+  color: #42b983;
+}
+.categoryposttopnav-container .toc-main .note-item a {
+  color: #fff;
+}
+.categoryposttopnav-container .toc-main .note-item a:hover {
+  color: #42b983;
+}
+.categoryposttopnav-container .toc-main .note-item:last-child {
+  border-right: none;
+}
 @-moz-keyframes shine {
   0%, 100% {
     opacity: 0.1;
