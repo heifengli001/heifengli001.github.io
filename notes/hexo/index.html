@@ -10,7 +10,7 @@
   
   <title>
     
-      使用Hexo创建个人Blog | 黑凤梨的假正经Blog
+      本博客网站搭建学习和使用 | 黑凤梨的假正经Blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -35,6 +35,12 @@
         <li class="list-item">
           
             <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/vuepress/" class="item-link">VuePress</a>
           
         </li>
       
@@ -73,6 +79,12 @@
         
           <li class="menu-item">
             
+              <a href="/vuepress/" class="menu-link">VuePress</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
               <a href="/categories/" class="menu-link">分类</a>
             
           </li>
@@ -97,7 +109,7 @@
     <div id="article-banner">
   <h2>    
     
-    使用Hexo创建个人Blog</h2>
+    本博客网站搭建学习和使用</h2>
   <!-- <p class="post-date">2019-06-27</p> -->
   <!-- <div class="arrow-down">
     <a href="javascript:;"></a>
@@ -110,7 +122,52 @@
  
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h1 id="Hexo-学习笔记"><a href="#Hexo-学习笔记" class="headerlink" title="Hexo 学习笔记"></a>Hexo 学习笔记</h1></section>
+    <section class="markdown-content"><h1 id="我也想要这个博客"><a href="#我也想要这个博客" class="headerlink" title="我也想要这个博客"></a>我也想要这个博客</h1><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
+<li><p>Hexo<br>如果系统没有 <code>Hexo</code> 环境,执行 <code>npm install -g hexo-cli</code> 安装Hexo</p>
+</li>
+<li><p>Vuepress<br>如果系统没有 <code>vuepress</code> 环境,执行 <code>npm install -D vuepress</code> 安装Vuepress</p>
+</li>
+</ul>
+<hr>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="Hexo-前往"><a href="#Hexo-前往" class="headerlink" title="Hexo 前往"></a>Hexo <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">前往</a></h4><blockquote>
+<p>在确定为<strong>单文档内容，非连续多文档</strong>建议使用<code>Hexo</code>进行创作书写</p>
+</blockquote>
+<ul>
+<li><p>创建新文档 使用 <code>hexo new post &quot;your-new-doc-name&quot;</code> </p>
+<p>其中 <code>your-new-doc-name</code> 替换你的文档名<br>名称建议遵循以下规则：文件名应该要么始终是单词大写开头 (PascalCase),要么始终是横线连接 (kebab-case)。</p>
+<ul>
+<li>文档头部内容,使用了<code>Front Matter</code> 扩展，定义了页面的配置内容,前往<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">官网</a><br>示例如下:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 示例如下</span><br><span class="line">title: Docker安装和配置</span><br><span class="line">date: 2019-06-27 16:58:06</span><br><span class="line">categories:</span><br><span class="line">- Docker</span><br><span class="line">tags:</span><br><span class="line">- Docker</span><br><span class="line"># 具体配置可前往官网查看</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成静态文件 <code>hexo g</code> </p>
+<p>其中 <code>g</code> 是 generate 的缩写,将在主目录的 <code>/public</code> 目录下创建以给定规则建立的静态Html页面结构</p>
+</li>
+<li><p>本地预览 <code>hexo s</code> </p>
+<p>其中<code>s</code> 是 server 的缩写，将在本机的 <strong>4000</strong> 端口创建服务,在<code>hexo s</code>执行前,先执行 <code>hexo g</code> 生成静态文件。<br><code>hexo s</code>后可增加 <code>-p 5000</code> 指定5000端口创建服务，即命令为 <code>hexo s -p 5000</code></p>
+</li>
+<li><p>清理 <code>hexo clean</code></p>
+<p>在发现预览网页显示异常可执行该命令，清理 <code>/public</code> 目录下所有文件,防止文件错乱导致的显示异常</p>
+<h4 id="vuepress-前往"><a href="#vuepress-前往" class="headerlink" title="vuepress 前往"></a>vuepress <a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="noopener">前往</a></h4><blockquote>
+<p>在确定网页为<strong>单主题,多文档集</strong>,建议使用 <code>vuepress</code>进行书写创作</p>
+</blockquote>
+<p>vuepress 的文档统一放在docs目录下<br>建议同一主题创建新文件夹<br>每个文件夹下必须包含一个 <code>README.md</code> 文档</p>
+</li>
+<li><p><code>/docs</code>下的<code>README.md</code>为Vuepress的首页内容</p>
+<p>文档头部内容,使用了<code>Front Matter</code> 扩展，定义了页面的配置内容,具体前往<a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="noopener">官网</a>查看</p>
+</li>
+<li><p>新文档 在<code>/docs</code> 目录下新建文件夹，并在新文件夹在创建 <code>README.md</code> 文档</p>
+</li>
+<li><p>导航栏,在 <code>./vuepress/config.js</code>下，配置<code>nav</code>节点</p>
+</li>
+<li><p>本地查看 <code>npm run dev</code> 将在指定<strong>5000</strong>端口(config.js中可配置)创建服务</p>
+</li>
+<li><p>静态文档 <code>npm run build</code> 将在指定目录 <code>../public/vuepress</code> (config.js中可配置,未设置默认为<code>.vuepress/dist</code>)</p>
+</li>
+<li><p>更多配置，建议去官网查看具体配置</p>
+</li>
+</ul>
+</section>
     <!-- Tags START -->
     
       <div class="tags">
@@ -118,6 +175,10 @@
         
   <a href="/tags#Hexo" >
     <span class="tag-code">Hexo</span>
+  </a>
+
+  <a href="/tags#Vuepress" >
+    <span class="tag-code">Vuepress</span>
   </a>
 
       </div>
@@ -160,7 +221,7 @@
   <div class="toc-main">
     <strong class="toc-title">目录</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Hexo-学习笔记"><span class="toc-nav-text">Hexo 学习笔记</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#我也想要这个博客"><span class="toc-nav-text">我也想要这个博客</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装"><span class="toc-nav-text">安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#使用"><span class="toc-nav-text">使用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Hexo-前往"><span class="toc-nav-text">Hexo 前往</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#vuepress-前往"><span class="toc-nav-text">vuepress 前往</span></a></li></ol></li></ol></li></ol></li></ol>
     
   </div>
 </aside>

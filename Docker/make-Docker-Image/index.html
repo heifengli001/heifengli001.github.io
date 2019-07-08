@@ -10,7 +10,7 @@
   
   <title>
     
-      我的常用收藏夹 | 黑凤梨的假正经Blog
+      使用Dockerfile自制镜像 | 黑凤梨的假正经Blog
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -109,31 +109,92 @@
     <div id="article-banner">
   <h2>    
     
-    我的常用收藏夹</h2>
-  <!-- <p class="post-date">2019-07-01</p> -->
+      
+  <a style="color:#fff;" href="/categories#Docker" >
+    <span >Docker</span>
+  </a>
+ |
+    
+    使用Dockerfile自制镜像</h2>
+  <!-- <p class="post-date">2019-07-02</p> -->
   <!-- <div class="arrow-down">
     <a href="javascript:;"></a>
   </div> -->
   
     
+  <aside class="categoryposttopnav-container">
+    <div class="toc-main">
+      <!-- <strong class="toc-title">当前分类文章</strong> -->
+        
+          
+            <!-- <span class="note-item">
+              
+                <a href="/Docker/make-Docker-Image/" class="active">使用Dockerfile自制镜像              </a>
+              
+              </span> -->
+        
+          
+          <span class="note-item">
+             
+              <a href="/Docker/nginx/" >Docker 安装 Nginx</a>
+          
+            </span>
+            
+            <!-- <span class="note-item">
+                           
+                <a href="/Docker/nginx/" >Docker 安装 Nginx</a>
+              
+              </span> -->
+        
+          
+          <span class="note-item">
+             
+              <a href="/Docker/nuget/" >Docker下部署Nuget Service</a>
+          
+            </span>
+            
+            <!-- <span class="note-item">
+                           
+                <a href="/Docker/nuget/" >Docker下部署Nuget Service</a>
+              
+              </span> -->
+        
+          
+          <span class="note-item">
+             
+              <a href="/Docker/docker/" >Docker安装和配置</a>
+          
+            </span>
+            
+            <!-- <span class="note-item">
+                           
+                <a href="/Docker/docker/" >Docker安装和配置</a>
+              
+              </span> -->
+        
+    </div>
+  </aside>
+  
   
 </div>
 <main class="app-body flex-box">
  
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h2 id="常用网址收藏"><a href="#常用网址收藏" class="headerlink" title="常用网址收藏"></a>常用网址收藏</h2><h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><p><a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">git-廖雪峰教程</a></p>
-<h3 id="Design-Icon"><a href="#Design-Icon" class="headerlink" title="Design/Icon"></a>Design/Icon</h3><p><a href="http://www.fontawesome.com.cn/faicons/" target="_blank" rel="noopener">icon-FontAwesome</a></p>
-<p><a href="https://www.iconfont.cn" target="_blank" rel="noopener">icon-阿里icon</a></p>
-<h3 id="Amusement"><a href="#Amusement" class="headerlink" title="Amusement"></a>Amusement</h3><p><a href="https://www.bd-film.cc/" target="_blank" rel="noopener">movie-DBFilm</a></p>
+    <section class="markdown-content"><h1 id="自制带汉字字体以及图片处理dll的Docker镜像"><a href="#自制带汉字字体以及图片处理dll的Docker镜像" class="headerlink" title="自制带汉字字体以及图片处理dll的Docker镜像"></a>自制带汉字字体以及图片处理dll的Docker镜像</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li><a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">获取清华开源镜像地址</a></li>
+<li>将镜像内容复制粘贴到Dockerfile 同级目录下的 <code>source.list</code> 文件内</li>
+<li>生成镜像 <code>docker build -t dotnetcore/withfonts:latest .</code> </li>
+<li>生成容器 <code>docker run --name testmir dotnetcore/withfonts</code></li>
+</ul>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <!-- <span>标签:</span> -->
         
-  <a href="/tags#NoteMark" >
-    <span class="tag-code">NoteMark</span>
+  <a href="/tags#Docker" >
+    <span class="tag-code">Docker</span>
   </a>
 
       </div>
@@ -147,20 +208,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/Docker/nginx/">
+      <a class="nav-left" href="/notes/noteMark/">
         <span class="nav-arrow">← </span>
         
-          Docker 安装 Nginx
+          我的常用收藏夹
         
       </a>
     
-    
-      <a class="nav-right" href="/Docker/make-Docker-Image/">
-        
-          使用Dockerfile自制镜像
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -176,7 +230,7 @@
   <div class="toc-main">
     <strong class="toc-title">目录</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#常用网址收藏"><span class="toc-nav-text">常用网址收藏</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Tools"><span class="toc-nav-text">Tools</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Design-Icon"><span class="toc-nav-text">Design/Icon</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Amusement"><span class="toc-nav-text">Amusement</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#自制带汉字字体以及图片处理dll的Docker镜像"><span class="toc-nav-text">自制带汉字字体以及图片处理dll的Docker镜像</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#准备工作"><span class="toc-nav-text">准备工作</span></a></li></ol></li></ol>
     
   </div>
 </aside>
@@ -187,7 +241,7 @@
 
 <script>
   (function () {
-    var url = 'http://yoursite.com/notes/noteMark/';
+    var url = 'http://yoursite.com/Docker/make-Docker-Image/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
