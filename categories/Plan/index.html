@@ -34,7 +34,7 @@
       
         <li class="list-item">
           
-            <a href="/" class="item-link active">首页</a>
+            <a href="/" class="item-link">首页</a>
           
         </li>
       
@@ -79,7 +79,7 @@
         
           <li class="menu-item">
             
-              <a href="/" class="menu-link mobile-active">首页</a>
+              <a href="/" class="menu-link">首页</a>
             
           </li>
         
@@ -118,124 +118,53 @@
   </div>
 </header>
 
-    <main class="app-body">
- 
+    <div id="article-banner">
+  <h2>Archives</h2>
+  <p class="post-date">文章归档</p>
+</div>
+<main class="app-body" id="archives">
   
+  
+  
+    <section class="time-section">
+  <h1 class="section-year">
+    2019
+  </h1>
+  <div class="section-list">
     
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/Plan/Loseweight/">黑凤梨的减肥计划</a>
-      </h2>
-      <p class="article-date">July 1, 2019</p>
-      <!--  -->
-      <div class="article-summary">
-        
-          当前日期：2019-07-08 计划 第八天
-共锻炼 6 天
-
-★★☆★★★☆★☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
-
-这次很正经的减肥计划时间2019-07-01 ~ 2019-07-31  共31天
-目标瘦到124斤
-规划
-31天不吃以猪肉为主菜的任何菜，包括火锅
-31天 坚持每 ...
-        
-      </div>
-      <a class="more" href="/Plan/Loseweight/">更多...</a>
-    </article>
-  
     
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/notes/noteMark/">我的常用收藏夹</a>
-      </h2>
-      <p class="article-date">July 1, 2019</p>
-      <!-- 
-        
-  <a href="/tags#NoteMark" >
-    <span class="tag-code">NoteMark</span>
-  </a>
-
-       -->
-      <div class="article-summary">
-        
-          常用网址收藏Toolsgit-廖雪峰教程
-Design/Iconicon-FontAwesome
-icon-阿里icon
-Amusementmovie-DBFilm
-
-        
+      <div class="section-list-item">
+        <a href="/Plan/Loseweight/" class="archive-title">黑凤梨的减肥计划</a>
+        <p class="archive-date">07-01</p>
       </div>
-      <a class="more" href="/notes/noteMark/">更多...</a>
-    </article>
-  
     
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/notes/hexo/">本博客网站搭建学习和使用</a>
-      </h2>
-      <p class="article-date">June 27, 2019</p>
-      <!-- 
-        
-  <a href="/tags#Hexo" >
-    <span class="tag-code">Hexo</span>
-  </a>
-
-  <a href="/tags#Vuepress" >
-    <span class="tag-code">Vuepress</span>
-  </a>
-
-       -->
-      <div class="article-summary">
-        
-          我也想要这个博客安装
-Hexo如果系统没有 Hexo 环境,执行 npm install -g hexo-cli 安装Hexo
-
-Vuepress如果系统没有 vuepress 环境,执行 npm install -D vuepress 安装Vuepress
-
-
-
-使用Hexo 前往
-在确定 ...
-        
+      <div class="section-list-item">
+        <a href="/notes/noteMark/" class="archive-title">我的常用收藏夹</a>
+        <p class="archive-date">07-01</p>
       </div>
-      <a class="more" href="/notes/hexo/">更多...</a>
-    </article>
-  
     
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/notes/centos/">Centos7安装</a>
-      </h2>
-      <p class="article-date">June 27, 2019</p>
-      <!-- 
-        
-  <a href="/tags#Centos" >
-    <span class="tag-code">Centos</span>
-  </a>
-
-       -->
-      <div class="article-summary">
-        
-          安装&amp;配置
-基于VMWare + Centos 7 
-
-配置网络
-在刚安装完Centos 后是无法上网的 所以需要自己配置网络（桥接模式）搬运链接我们的目标是成功 ping www.baidu.com 
-
-
-先进行自动获取网络  命令：dhclient 再用命令 ip addr 查看 ...
-        
+      <div class="section-list-item">
+        <a href="/notes/hexo/" class="archive-title">本博客网站搭建学习和使用</a>
+        <p class="archive-date">06-27</p>
       </div>
-      <a class="more" href="/notes/centos/">更多...</a>
-    </article>
-  
-
+    
+      <div class="section-list-item">
+        <a href="/notes/centos/" class="archive-title">Centos7安装</a>
+        <p class="archive-date">06-27</p>
+      </div>
+    
+  </div>
+</section>
   
 </main>
 
-
+<script>
+  (function () {
+    var url = 'http://yoursite.com/categories/Plan/index.html';
+    $('#article-banner').geopattern(url);
+    $('.header').removeClass('fixed-header');
+  })();
+</script>
     <div class="scroll-top">
   <span class="arrow-icon"></span>
 </div>
