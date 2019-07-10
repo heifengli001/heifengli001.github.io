@@ -1119,6 +1119,33 @@ h2.article-head {
 .categoryposttopnav-container .toc-main .note-item:last-child {
   border-right: none;
 }
+.hometuijian {
+  margin-top: 40px;
+  border: 1px solid #42b983;
+  border-radius: 5px;
+  padding: 20px;
+}
+.hometuijian .title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #42b983;
+}
+.hometuijian .link-body {
+  color: #42b983;
+}
+.hometuijian .link-body span {
+  padding: 0 10px;
+  border-right: 1px solid #42b983;
+  font-size: 18px;
+  font-weight: 600;
+  color: #42b983;
+}
+.hometuijian .link-body span:first-child {
+  border-right: none;
+}
+.hometuijian .link-body span:last-child {
+  border-right: none;
+}
 @-moz-keyframes shine {
   0%, 100% {
     opacity: 0.1;
