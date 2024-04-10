@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>广告投放知识点 | 黑凤梨的博客</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="/assets/favicon.ico"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=1.7.12"><!-- inject head--><link rel="stylesheet" href="https://cdn2.codesign.qq.com/icons/7pOrz0WXB5ZWJPX/latest/iconfont.css"><!-- aplayer--><link rel="stylesheet" href="https://cdn.staticfile.net/aplayer/1.10.1/APlayer.min.css"><!-- swiper--><!-- Open Graph--><meta name="description" content="行业网站 谷歌分析：https:&amp;#x2F;&amp;#x2F;analytics.google.com&amp;#x2F;analytics&amp;#x2F;web&amp;#x2F;provision&amp;#x2F;#&amp;#x2F;provision 谷歌广告：https:&amp;#x2F;&amp;#x2F;ads.google.com&amp;#x2F; similarweb市场情报平台（国外网站分析）：https:&amp;#x2F;&amp;#x2F;pro.similarwe"><!-- pwa--><script>(win => {
+        win.saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay,
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        }
+
+        const DarkModeStatus = localStorage.getItem('theme')
+        if (DarkModeStatus !== null) {
+            if (DarkModeStatus === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark')
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light')
+            }
+        }
+
+        const asideStatus = saveToLocal.get('aside-status')
+        if (asideStatus !== undefined) {
+            if (asideStatus === 'hide') {
+                document.documentElement.classList.add('hide-aside')
+            } else {
+                document.documentElement.classList.remove('hide-aside')
+            }
+        }
+
+        win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+            const link = document.createElement('link')
+            link.rel = 'stylesheet'
+            link.href = url
+            if (id) link.id = id
+            link.onerror = reject
+            link.onload = link.onreadystatechange = function () {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
+            }
+            document.head.appendChild(link)
+        })
+
+        win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+            const script = document.createElement('script')
+            script.src = url
+            script.async = true
+            script.onerror = reject
+            script.onload = script.onreadystatechange = function () {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+            }
+
+            Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+            })
+
+            document.head.appendChild(script)
+        })
+    }
+)(window)
+
+console.log(
+    "%c Program: Hexo %c Theme: Solitude %c Version: v1.7.12",
+    "border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#ff3842;",
+    "padding: 5px 10px;color:white;background:#3e9f50;",
+    "border-radius:0 5px 5px 0;padding: 5px 10px;background:#0084ff;color:white;"
+);</script><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: undefined,
+    localsearch: {"preload":false,"path":"/search.xml"},
+    runtime: '2016-04-20 00:00:00',
+    lazyload: {
+        enable: true,
+        error: '/img/error_load.png'
+    },
+    copyright: {"limit":50,"author":"作者: IvanYang","link":"链接: ","source":"来源: 黑凤梨的博客","info":"著作权归作者所有。 商业转载请联系作者获得授权，非商业转载请注明出处。"},
+    highlight: {
+        enable: true,
+        limit: 200,
+        expand: true,
+        copy: true,
+        syntax: 'highlight.js'
+    },
+    randomlink: false,
+    lang: {"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"f12":"开发者模式已打开，请遵循GPL协议。","totalk":"无需删除空行，直接输入评论即可","search":{"empty":"找不到你查询的内容：${query}","hit":"找到 ${hits} 条结果，用时 ${time} 毫秒","placeholder":"输入关键词快速查找","count":"共 <b>${count}</b> 条结果。"}},
+    aside: {
+        sayhello: {
+            morning: '一日之计在于晨',
+            noon: '吃饱了才有力气干活',
+            afternoon: '集中精力，攻克难关',
+            night: '不要太劳累了，早睡更健康',
+            goodnight: '睡个好觉，保证精力充沛',
+        },
+        sayhello2: [],
+    },
+    covercolor: {
+        enable: false
+    },
+    comment: false,
+    lightbox: 'null',
+    post_ai: false,
+    right_menu: {"mode":{"dark":"深色模式","light":"浅色模式"},"img_error":"此图片无法复制与下载"},
+};</script><meta name="generator" content="Hexo 7.1.1"></head><body id="body"><!-- universe--><canvas id="universe"></canvas><!-- loading--><div id="loading-box" onclick="preloader.endLoading();" style="zoom:1"><div class="loading-bg"><img class="loading-img nolazyload" src="/assets/favicon.ico" alt="loading image"></div></div><script>const preloader = {
+    endLoading: () => {
+        document.getElementById('loading-box').classList.toggle('loaded');
+    },
+    initLoading: () => {
+        document.getElementById('loading-box').classList.remove('loaded');
+    },
+    removePaceDone: () => {
+        document.getElementById('body').classList = 'pace-done';
+    }
+}
+window.addEventListener('load', () => {
+    preloader.endLoading();
+});
+window.addEventListener('pjax:send', () => {
+    preloader.initLoading();
+});
+document.addEventListener('pjax:complete', () => {
+    preloader.endLoading();
+});</script><!-- console--><div id="console"><div class="close-btn" onclick="sco.hideConsole()"><i class="solitude st-close-fill"></i></div><div class="button-group"><div class="console-btn-item"><span class="darkmode_switchbutton" onclick="sco.switchDarkMode()" title="昼夜切换"><i class="solitude st-moon-clear-fill"></i></span></div><div class="console-btn-item" id="consoleHideAside"><span class="asideSwitch" onclick="sco.switchHideAside()" title="边栏显示控制"><i class="solitude st-side-bar-fill"></i></span></div></div><div class="console-mask" onclick="sco.hideConsole()"></div></div><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude st-moon-clear-fill"></i><span>显示模式</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  st-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  st-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  st-price-tag-fill"></i><span>全部标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><span>友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/tlink/"><i class="solitude  st-tools-fill"></i><span>工具箱</span></a></li><li><a class="site-page child" href="/music/"><i class="solitude  st-disc-fill"></i><span>音乐馆</span></a></li><li><a class="site-page child" href="/movies/"><i class="solitude  st-disc-fill"></i><span>电影</span></a></li><li><a class="site-page child" href="/books/"><i class="solitude  st-film-fill"></i><span>读书</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><span>关于</span></a></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"><a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器<sup>2</sup></a><a href="/tags/%E8%AF%AD%E9%9B%80%E5%90%8C%E6%AD%A5/">语雀同步<sup>17</sup></a><a href="/tags/Centos/">Centos<sup>2</sup></a><a href="/tags/Docker/">Docker<sup>3</sup></a><a href="/tags/Hexo/">Hexo<sup>1</sup></a><a href="/tags/Vuepress/">Vuepress<sup>1</sup></a><a href="/tags/Solitude/">Solitude<sup>1</sup></a><a href="/tags/JavaScript/">JavaScript<sup>3</sup></a><a href="/tags/%E8%82%A1%E7%A5%A8/">股票<sup>1</sup></a><a href="/tags/Css/">Css<sup>1</sup></a><a href="/tags/Nginx/">Nginx<sup>1</sup></a><a href="/tags/HTTP/">HTTP<sup>2</sup></a><a href="/tags/Python/">Python<sup>2</sup></a><a href="/tags/Scrapy/">Scrapy<sup>1</sup></a><a href="/tags/Ad/">Ad<sup>1</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式<sup>1</sup></a><a href="/tags/%E6%8A%93%E5%8C%85/">抓包<sup>1</sup></a><a href="/tags/whistle/">whistle<sup>1</sup></a><a href="/tags/vue/">vue<sup>2</sup></a><a href="/tags/vite/">vite<sup>2</sup></a><a href="/tags/webpack/">webpack<sup>2</sup></a><a href="/tags/rollup/">rollup<sup>1</sup></a></div></div></div></div><!-- keyboard--><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><a id="site-name" href="/" title="返回博客主页"><span class="title">首页</span></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">广告投放知识点</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  st-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  st-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  st-price-tag-fill"></i><span>全部标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><span>友链</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/tlink/"><i class="solitude  st-tools-fill"></i><span>工具箱</span></a></li><li><a class="site-page child" href="/music/"><i class="solitude  st-disc-fill"></i><span>音乐馆</span></a></li><li><a class="site-page child" href="/movies/"><i class="solitude  st-disc-fill"></i><span>电影</span></a></li><li><a class="site-page child" href="/books/"><i class="solitude  st-film-fill"></i><span>读书</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><span>关于</span></a></div></div></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索"><i class="solitude st-search-line"></i></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude st-menu-line"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload" id="post-cover" src="https://img0.baidu.com/it/u=4007409157,687919044&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=730&amp;h=411" alt="广告投放知识点"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="该文章为原创文章，注意版权协议">原创</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/%E5%B9%BF%E5%91%8A%E6%8A%95%E6%94%BE/">广告投放</a></span><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AF%AD%E9%9B%80%E5%90%8C%E6%AD%A5/"><span class="tags-name tags-punctuation">语雀同步</span></a><a class="post-meta__tags" href="/tags/Ad/"><span class="tags-name tags-punctuation">Ad</span></a></div></div></div></div><h1 class="post-title">广告投放知识点</h1><div id="post-meta"><div class="meta-secondline"></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="行业网站"><a href="#行业网站" class="headerlink" title="行业网站"></a>行业网站</h1><ul>
+<li>谷歌分析：<a target="_blank" rel="noopener" href="https://analytics.google.com/analytics/web/provision/#/provision">https://analytics.google.com/analytics/web/provision/#/provision</a></li>
+<li>谷歌广告：<a target="_blank" rel="noopener" href="https://ads.google.com/">https://ads.google.com/</a></li>
+<li>similarweb市场情报平台（国外网站分析）：<a target="_blank" rel="noopener" href="https://pro.similarweb.com/">https://pro.similarweb.com/</a></li>
+<li>Adjust移动归因(国外App分析)：<a target="_blank" rel="noopener" href="https://www.adjust.com/zh?_gl=1*flna4*_ga*MTUwODA5MTUzNC4xNjc2MTIyNzU0*_ga_0PTWR1H71B*MTY3NjE5Njk0NS4zLjEuMTY3NjE5Njk5Ni4wLjAuMA..">https://www.adjust.com/zh</a></li>
+<li>七麦数据（国内App分析）：<a target="_blank" rel="noopener" href="https://www.qimai.cn/">https://www.qimai.cn/</a></li>
+</ul>
+<hr>
+<h1 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h1><h2 id="归因"><a href="#归因" class="headerlink" title="归因"></a>归因</h2><p>移动归因（又称为移动应用跟踪）是指将两个数据点进行匹配的技术，例如根据特定变量将某些支出归因于用户交互或安装。归因可以让您了解，当用户与移动广告指向的应用间进行交互或不交互时发生了什么。<br />成功的移动应用归因可覆盖整个转化漏斗。它可以帮助确定用户看到广告时是否做出了响应；确定用户看到广告后是否安装应用；确定用户安装后的行为。<br />虽然移动应用跟踪可以帮助广告主商和营销商了解个人用户，但归因可以帮助营销商确认相关的同期群，确认对素材作出（或不作出）响应的群体，并通过跟踪关键事件来确定他们在应用内的行为（例如 IAP 购买或广告浏览）。</p>
+<p><strong>归因为什么很重要？</strong><br /><strong>归因计算是为了获得转化率所耗费的广告费用，为衡量应用广告成功与否提供重要数据。</strong>如果归因不准确，广告主、合作伙伴和应用开发商就不知道每条广告花费了多少钱，而成功的转化又花费了多少钱。<br />此外，移动应用归因对于各种优化操作都是不可少的。<strong>通过跟踪用户事件和了解用户面对付费活动时的行为，可以改变和改进应用、素材和支出等方方面面。</strong><br />归因会影响整个移动广告生态系统：从确定广告空间成本到判定一项推广活动表现的好坏，这也是它成为移动营销重点的另一原因。</p>
+<h2 id="Google-UAC"><a href="#Google-UAC" class="headerlink" title="Google UAC"></a>Google UAC</h2><blockquote>
+<p>谷歌应用广告(Universal App Campaigns-[通用应用程序活动])</p>
+</blockquote>
+<p>对于<strong>移动端App类海外推广</strong>，谷歌一直推荐的是UAC广告，UAC广告分为UAC1.0&#x2F;2.0&#x2F;2.5三大类。基本每上升一个UAC版本，优化的事件深度就会更深入一层。<br /> 简单理解：</p>
+<ul>
+<li>1.0是追求安装量； </li>
+<li>2.0是追求可能会产生应用内操作的安装人群； </li>
+<li><strong>2.5是纯粹追求会产生应用内操作的人群。</strong></li>
+</ul>
+<p> 目标不同，所以广告系统的模型和搜寻受众的方式也会有所区别。 </p>
+</article><div class="post-copyright"><div class="post-copyright__author_group"><a class="post-copyright__author_img" href="/about/"><img class="post-copyright__author_img_front" src="/assets/favicon.ico"></a><div class="post-copyright__author_name">黑凤梨的博客</div><div class="post-copyright__author_desc"></div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div id="quit-box" onclick="RemoveRewardMask()"></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>协议，完整转载请注明来自<a href="/">黑凤梨的博客</a></span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AF%AD%E9%9B%80%E5%90%8C%E6%AD%A5/"><span class="tags-punctuation"></span>语雀同步<span class="tagsPageCount">17</span></a><a class="post-meta__tags" href="/tags/Ad/"><span class="tags-punctuation"></span>Ad<span class="tagsPageCount">1</span></a></div></div></div><nav class="needEndHide pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/02/08/webpack/"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">webpack</div></div></a></div><div class="next-post pull-right"><a href="/2023/02/08/sjms/"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">常见的软件设计模式</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="solitude st-star-smile-fill"></i><span>喜欢这篇的人也看了</span><div class="relatedPosts-link"><a onclick="event.preventDefault(); toRandomPost();" href="javascript:void(0);" rel="external nofollow" data-pjax-state="">随便逛逛</a></div></div><div class="relatedPosts-list"><div><a href="/2023/11/21/sxdm/" title="经典实现的手写"><img class="cover" src="https://pic.rmb.bdstatic.com/7010040c1435f4d37a85cbdda096e3c7.jpeg@c_1,w_640,h_326,x_0,y_0" alt="cover"><div class="content is-center"><div class="title">经典实现的手写</div></div></a></div><div><a href="/2023/11/20/javascript/" title="javascript红宝书笔记"><img class="cover" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.alicdn.com%2Fi1%2F360232326%2FO1CN016UWTMo1T3LurnpDlg_%21%21360232326.jpg&refer=http%3A%2F%2Fimg.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1715347444&t=e3715b0c99d933304846b414908de891" alt="cover"><div class="content is-center"><div class="title">javascript红宝书笔记</div></div></a></div></div></div><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="solitude st-chat-fill"></i><span>评论</span><span></span></div></div><div class="comment-wrap"><div id="comment"></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="sco.changeSayHelloText()">sayhello.morning</div></div></div><div class="avatar-img-group"><img class="avatar-img" alt="头像" src="/assets/favicon.png"><div class="avatar-sticker"><img class="avatar-sticker-img" src="https://7.isyangs.cn/34/65f2e4e0423cc-34.png" alt="心情贴纸"></div></div><div class="author-info__description_group"><div class="author-info__description">我还有好多想和你分享。</div><div class="author-info__description2">如果你觉得有用，那我也太高兴了吧😄 ❀</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about/"><div class="author-info__name">IvanYang</div><div class="author-info__desc"></div></a><div class="card-info-social-icons is-center"><a class="social-icon" target="_blank" rel="noopener" href="https://github.com/heifengli001" title="Github"><i class="solitude  st-github-line"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="solitude st-menu-line"></i><span>文章目录</span></div><div class="toc-content" id="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A1%8C%E4%B8%9A%E7%BD%91%E7%AB%99"><span class="toc-text">行业网站</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A"><span class="toc-text">名词解释</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E5%9B%A0"><span class="toc-text">归因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Google-UAC"><span class="toc-text">Google UAC</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="solitude st-map-line"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/11/21/sxdm/" title="经典实现的手写"><img alt="经典实现的手写" src="https://pic.rmb.bdstatic.com/7010040c1435f4d37a85cbdda096e3c7.jpeg@c_1,w_640,h_326,x_0,y_0"></a><div class="content"><a class="title" href="/2023/11/21/sxdm/" title="经典实现的手写">经典实现的手写</a><a class="article-recent_post_categories" href="/2023/11/21/sxdm/">前端</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/20/javascript/" title="javascript红宝书笔记"><img alt="javascript红宝书笔记" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.alicdn.com%2Fi1%2F360232326%2FO1CN016UWTMo1T3LurnpDlg_%21%21360232326.jpg&amp;refer=http%3A%2F%2Fimg.alicdn.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=auto?sec=1715347444&amp;t=e3715b0c99d933304846b414908de891"></a><div class="content"><a class="title" href="/2023/11/20/javascript/" title="javascript红宝书笔记">javascript红宝书笔记</a><a class="article-recent_post_categories" href="/2023/11/20/javascript/">前端</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07/27/jiucai/" title="股票的几个指标含义"><img alt="股票的几个指标含义" src="https://img0.baidu.com/it/u=389114746,4135294987&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=500&amp;h=253"></a><div class="content"><a class="title" href="/2023/07/27/jiucai/" title="股票的几个指标含义">股票的几个指标含义</a><a class="article-recent_post_categories" href="/2023/07/27/jiucai/">韭菜</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07/07/python/" title="Python基础知识点"><img alt="Python基础知识点" src="https://img2.baidu.com/it/u=2805708862,2375026129&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=600&amp;h=400"></a><div class="content"><a class="title" href="/2023/07/07/python/" title="Python基础知识点">Python基础知识点</a><a class="article-recent_post_categories" href="/2023/07/07/python/">后端</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/20/vue2vite/" title="vue-cli迁移到vite初体验"><img alt="vue-cli迁移到vite初体验" src="https://static.open-open.com/lib/uploadImg/20161012/20161012105523_94.png"></a><div class="content"><a class="title" href="/2023/04/20/vue2vite/" title="vue-cli迁移到vite初体验">vue-cli迁移到vite初体验</a><a class="article-recent_post_categories" href="/2023/04/20/vue2vite/">前端</a></div></div></div></div></div></div></main><footer id="footer"><div id="st-footer-bar"><div class="footer-logo"><span class="solitude">首页</span></div><div class="footer-bar-description">来自黑凤梨的博客 - 的文章</div><a class="footer-bar-link" href="/">了解更多</a></div><div id="footer_deal"><a class="deal_link" target="_blank" rel="noopener" href="https://github.com/heifengli001" title="Github"><i class="solitude  st-github-line"></i></a><div class="nolazyload footer_mini_logo" id="footer_mini_logo" title="返回顶部" onclick="sco.toTop()"><img src= "/img/loading.gif" data-lazy-src="/assets/favicon.ico" alt="返回顶部"></div><a class="deal_link" href="mailto:ys930126@sina.cn" title="Mail"><i class="solitude  st-mail-line"></i></a></div><div id="st-footer"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2016 - 2024 By&nbsp;<a class="footer-bar-link" href="/">IvanYang</a></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://hexo.io/" title="PowerBy Hexo">PowerBy Hexo</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/valor-x/hexo-theme-solitude" title="主题">主题</a><a class="footer-bar-link cc" href="/null" aria-label="copyright"><i class="solitude st-copyright-line"></i><i class="solitude st-creative-commons-by-line"></i><i class="solitude st-creative-commons-nc-line"></i><i class="solitude st-creative-commons-nd-line"></i></a></div></div></div></footer></div><!-- right_menu--><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="solitude st-arrow-left-line"></i></div><div class="rightMenu-item" id="menu-forward"><i class="solitude st-arrow-right-line"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="solitude st-restart-line"></i></div><div class="rightMenu-item" id="menu-top"><i class="solitude st-arrow-up-line"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="solitude st-copy-fill"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="solitude st-clipboard-fill"></i><span>粘贴文本</span></div><div class="rightMenu-item" id="menu-commenttext"><i class="solitude st-chat-new-fill"></i><span>引用到评论</span></div><div class="rightMenu-item" id="menu-newwindow"><i class="solitude st-window-fill"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="solitude st-link-line"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="solitude st-copy-fill"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="solitude st-download-cloud-fill"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-search"><i class="solitude st-search-line"></i><span>站内搜索</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"></div><div class="rightMenu-group rightMenu-line rightMenuOther"><div class="rightMenu-item" id="menu-darkmode" onclick="sco.switchDarkMode()"><i class="solitude st-moon-clear-fill"></i><span class="menu-darkmode-text">深色模式</span></div></div></div><div id="rightmenu-mask"></div><!-- inject body--><div><script src="/js/main.js?v=1.7.12"></script><script src="/js/utils.js?v=1.7.12"></script><script src="/js/third_party/waterfall.min.js?v=1.7.12"></script><script src="https://cdn.staticfile.net/pjax/0.2.8/pjax.min.js"></script><script src="/js/third_party/universe.min.js?v=1.7.12"></script><script>dark()
+</script><script src="https://cdn.staticfile.net/vanilla-lazyload/19.1.3/lazyload.iife.min.js"></script><script src="https://cdn.staticfile.net/node-snackbar/0.1.16/snackbar.min.js"></script><script src="https://cdn.staticfile.net/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdn.staticfile.net/meting/2.0.1/Meting.min.js"></script><script>const meting_api = 'https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+</script><script src="/js/music.js?v=1.7.12"></script><script src="https://cdn.staticfile.net/pace/1.2.4/pace.min.js"></script><script src="/js/right_menu.js?v=1.7.12"></script></div><div id="js-pjax"><script id="config-diff">var PAGE_CONFIG = {
+    is_post: true,
+    is_page: false,
+    is_home: false,
+    page: 'post',
+    toc: true,
+    comment: true,
+}
+</script></div><!-- newest comment--><!-- pjax--><script>let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax',
+    'meta[property^="og:"]',
+]
+
+const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
+
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
+
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+}
+initTheme()</script><!-- google adsense--><!-- search--><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="solitude st-close-fill"></i></button></nav><div class="search-wrap"><div class="search-box"><input class="search-box-input" id="search-input" type="text" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" placeholder="输入关键词快速查找"></div><div id="search-results"><div id="search-hits"></div></div><div id="search-pagination"></div><div id="search-tips"></div></div></div><div id="search-mask"></div></div><script src="/js/search/local.js?v=1.7.12"></script><!-- music--></body></html><script>const posts=["2023/11/21/sxdm/","2023/11/20/javascript/","2023/07/27/jiucai/","2023/07/07/python/","2023/04/20/vue2vite/","2023/03/14/scrapyDeploy/","2023/02/09/broswer/","2023/02/09/network/","2023/02/08/netsafe/","2023/02/08/webAppChunk/","2023/02/08/lessandsass/","2023/02/08/eventloop/","2023/02/08/broswerCache/","2023/02/08/webpack/","2023/02/08/toufang/","2023/02/08/sjms/","2021/12/30/whistle/","2019/06/28/nginx/","2019/06/27/docker/","2019/06/27/nuget/","2019/06/27/hexo/","2019/06/27/centos/"];function toRandomPost(){ pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]); }</script>
